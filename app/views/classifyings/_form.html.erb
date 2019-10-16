@@ -1,0 +1,28 @@
+<div class="mt-2 row">
+  <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-6">
+
+
+<%= form_with(model: @classifying, local: true) do |f| %>
+ <% if @classifying.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @classifying.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="form-group" >
+      
+       <%= f.text_field :classname, class: "form-control" %>
+      
+      </div>
+    
+       <%= f.submit '登録',class: 'btn btn-primary btn-lg' %>
+       
+<% end %>
+
+<%= link_to 'カテゴリー一覧に戻る', classifyings_path, class: 'baktop' %>
+  </div>
+</div>

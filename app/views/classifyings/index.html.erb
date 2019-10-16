@@ -1,0 +1,36 @@
+<div class="mt-2 row">
+    <div class="offset-sm-3 col-sm-6 offset-sm-3">
+    <div class="card">
+     <div class="card-header">
+       <h3 class= "text-center">カテゴリー一覧</h3>
+       <div class="btn-group">
+          <%= link_to 'カテゴリーの新規登録', new_classifying_path, class: 'btn-dark btn-sm'%>
+       </div>
+     </div>
+   <div class="card-body">
+        <ul>
+       
+           <% @classfyings.each do |cls| %>
+          
+                 <li><%= link_to cls.classname, cls, class: 'content' %></li>
+                 <div class="btn-group topp">
+                        <%= link_to "編集", edit_classifying_path(id: cls.id), class: 'btn btn-primary btn-sm' %>
+                      
+                 <%= link_to "削除", cls, method: :delete, data: { confirm: "このカテゴリーに紐づいた投稿もすべて削除されますがよろしいですか?" }, class: 'btn btn-danger btn-sm' %>
+                 </div>
+                 <!-- 以下全部OK
+                 <li><%= link_to cls.classname, classifying_path(id: cls.id) %></li>
+                 <li><%= link_to cls.classname, classifying_path(cls) %></li>
+                 <li><%= link_to cls.classname, classifying_path(cls.id) %></li>
+                 <li><%= link_to cls.classname, classifying_url(id: cls.id) %></li>
+                 <li><%= link_to cls.classname, classifying_url(cls) %></li>
+                 <li><%= link_to cls.classname, classifying_url(cls.id) %></li>-->
+            
+           <% end %>
+               
+        </ul>
+      </div>
+       </div>
+      </div>
+     </div>
+    </div>

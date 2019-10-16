@@ -1,0 +1,13 @@
+<div class="tb">
+   <div><%= @esentence.esentence %></div>
+   <div><%= @esentence.memo %></div>
+   
+     <div class="btn-group btn-h">
+                    <%= link_to '投稿を編集する', edit_esentence_path(@esentence) ,class: 'btn btn-primary btn-sm'%>
+                 </div>  
+                 <div class="btn-group btn-h">
+                    <%= link_to '投稿を削除する', @esentence, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },class: 'btn btn-danger btn-sm' %>
+                  </div>
+    </div>
+    <%= link_to '英文一覧に戻る', classifying_path(@cls_id) %>
+</div>

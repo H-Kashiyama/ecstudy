@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">
+        カテゴリー一覧
+    </div>
+    <div class="card-body">
+         <ul>
+       
+           <% @classfyings.each do |cls| %>
+          
+                 <li><%= link_to cls.classname, cls, class: 'content' %></li>
+                
+           <% end %>
+               
+        </ul>
+    </div>
+</div>

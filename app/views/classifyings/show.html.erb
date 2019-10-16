@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="mt-2 row">
+    <div class="col-sm-6">
+        <h3>英文</h3>
+        <p>（カテゴリー：<%= @classifying.classname %>）<%=  @esentences.count %>件</p>
+         <%= link_to '新規投稿', new_esentence_path(classifying_id: params[:classifying_id]), class: 'btn btn-primary btn-sm cap' %>
+        <ul>
+               
+                  <% @esentences.each do |es| %>
+                  
+                      <div>
+                         <li><%= link_to es.esentence, esentence_path(es) %></li>
+                        
+                       </div>
+                       
+                  <% end %>
+           
+        </ul>
+        
+        <%= paginate @esentences %>
+        <%= link_to 'カテゴリー一覧に戻る', classifyings_path, class: 'baktop' %>
+    </div>
+    
+        <div class="col-sm-6">
+              <%= render "layouts/sidebar" %>
+        </div>
+
+    </div>
+ </div>
+</div>

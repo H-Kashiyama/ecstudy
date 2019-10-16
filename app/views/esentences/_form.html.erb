@@ -1,0 +1,33 @@
+<div class="mt-2 row">
+  <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-6">
+
+
+<%= form_with(model: @esentence, local: true) do |f| %>
+ <% if @esentence.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @esentence.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="form-group">
+       <%= f.collection_select :classifying_id, Classifying.all, :id, :classname, { include_blank: true }, class: "select1" %>  ←カテゴリーを選択してください。
+      </div>
+
+      <div class="form-group" >
+       <label>英文：</label>
+       <%= f.text_field :esentence, class: "form-control" %>
+          <label>詳細（翻訳、シチュエーションなど）：</label>
+       <%= f.text_area :memo, class: "form-control" %>
+      
+      </div>
+    
+       <%= f.submit '投稿',class: 'btn btn-primary btn-lg' %>
+       
+<% end %>
+
+<%= link_to 'カテゴリー一覧に戻る', classifyings_path, class: 'baktop' %>
+  </div>
+</div>
