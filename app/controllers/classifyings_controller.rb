@@ -46,7 +46,7 @@ class ClassifyingsController < ApplicationController
     @classifying.destroy
 
     flash[:success] = 'カテゴリーは正常に削除されました'
-    redirect_to classifyings_url
+    redirect_to root_path
  
   end
   

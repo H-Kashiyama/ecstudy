@@ -1,13 +1,41 @@
-<div class="tb">
-   <div><%= @esentence.esentence %></div>
-   <div><%= @esentence.memo %></div>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-6">
+         <div class="text-center mt-1">
+          <h3 class= "child">英文</h3>  
+          <%= link_to '英文一覧に戻る', classifying_path(@cls_id) %>
+         </div >
+ <div class = "box1"><%= @esentence.esentence %></div>
+<span id="globalMenu1" onclick="playe()"><i class="fa fa-play-circle fa-4x"></i>speak</span >
+   <div class= "box2"><%= @esentence.memo %></div>
    
-     <div class="btn-group btn-h">
+ 
+  
+
+ <div class="btn-group btn-h">
                     <%= link_to '投稿を編集する', edit_esentence_path(@esentence) ,class: 'btn btn-primary btn-sm'%>
                  </div>  
                  <div class="btn-group btn-h">
                     <%= link_to '投稿を削除する', @esentence, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },class: 'btn btn-danger btn-sm' %>
                   </div>
     </div>
-    <%= link_to '英文一覧に戻る', classifying_path(@cls_id) %>
+  
+
 </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+
+    function playe(){
+      txt = $('.box1').text();
+        //console(txt);
+        var uttr = new SpeechSynthesisUtterance();
+      
+      uttr.text = txt;
+         
+      uttr.lang = 'en-US';
+     
+      speechSynthesis.speak(uttr);
+    }
+    
+</script>

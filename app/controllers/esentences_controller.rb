@@ -1,4 +1,11 @@
 class EsentencesController < ApplicationController
+    
+def index
+   
+     @classifying = Classifying.find(params[:id])
+     @esentences = @classifying.esentences.page(params[:page]) 
+
+end
 
 def show
      
@@ -15,12 +22,13 @@ end
  def create
   
    @esentence = Esentence.new(esentence_params)
+   @cls_id = @esentence.classifying_id
+   
     if @esentence.save
       flash[:success] = '正常に投稿されました'
-     
-      redirect_to classifyings_url(classifying_id: params[:classifying_id])
+      redirect_to classifying_path(cls_id: @cls_id)
+      #redirect_to classifyings_url(classifying_id: params[:classifying_id])
       #redirect_to controller: :classifyings, action: :show, id: params[:id]
-     
       #controller: :users, action: :show, id: 1 
       #redirect_to controller: 'コントローラ名, action: アクション名, id: id
     else
@@ -48,10 +56,13 @@ end
 
   def destroy
     @esentence = Esentence.find(params[:id]) 
+    @cls_id = @esentence.classifying_id
     @esentence.destroy
-
+    
     flash[:success] = '内容は正常に削除されました'
-    redirect_to root_url
+    #redirect_to root_path
+    
+    redirect_to classifying_path(@cls_id)
  
   end
 
