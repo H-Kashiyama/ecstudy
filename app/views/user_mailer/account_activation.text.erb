@@ -1,0 +1,7 @@
+<%= @user.name %>様、仮登録が完了しました
+
+本登録ボタンをクリックするとアカウントが有効になります。:
+
+<%= edit_account_activation_url(@user.activation_token, email:@user.email) %>
+
+このメールに心当たりがない方は破棄してください。:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_075437) do
+ActiveRecord::Schema.define(version: 2019_11_01_183003) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classname"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_11_01_075437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "activation_digest"
+    t.boolean "activated"
+    t.datetime "activated_at"
   end
 
   add_foreign_key "esentences", "classifyings"

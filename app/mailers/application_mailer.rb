@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com' #メルアド
+  default from: 'kashiyama@kwes.co.jp' #メルアド
   layout 'mailer'
   
 end

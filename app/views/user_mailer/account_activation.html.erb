@@ -1,0 +1,14 @@
+<h1>E-DataBank</h1>
+
+<p><%= @user.name %>様、仮登録が完了しました。</p>
+
+<p>
+本登録ボタンをクリックするとアカウントが有効になります。:
+</p>
+
+<%= link_to "本登録", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
+                                                    
+<p>
+このメールに心当たりがない方は破棄してください。:
+</p>

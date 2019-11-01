@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1>Sign up</h1>
+  <h1>新規ユーザー登録</h1>
 </div>
 
 <div class="row">
@@ -9,12 +9,12 @@
      
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
-        <%= f.label :name, 'Name' %>
+        <%= f.label :name, 'Name（ニックネーム可）' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email, 'Email' %>
+        <%= f.label :email, 'Email（このメール宛に本登録のご案内が届きます。）' %>
         <%= f.email_field :email, class: 'form-control' %>
       </div>
 
@@ -27,7 +27,7 @@
         <%= f.label :password_confirmation, 'Confirmation' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
-
+　　　<p>Sign upボタンをクリックすると仮登録が完了します。その後登録したメール宛に本登録のご案内が届きます。</p>
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
