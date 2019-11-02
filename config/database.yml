@@ -47,8 +47,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: ecstudy_production
   username: ecstudy
   password: <%= ENV['ECSTUDY_DATABASE_PASSWORD'] %>
